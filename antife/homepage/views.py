@@ -114,7 +114,7 @@ def login(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
-        user = Naudotojai.objects.filter(usename=username, password=password).first()
+        user = Naudotojai.objects.filter(username=username, password=password).first()
         if user is not None:
             # Authentication successful
             messages.success(request, f"Login successful. Welcome, {username}")

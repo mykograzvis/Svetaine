@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 
@@ -16,15 +17,17 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
-class Naudotojai(models.Model):
-    vardas = models.CharField(max_length=255)
-    pavarde = models.CharField(max_length=255)
+class Naudotojai(AbstractUser):
+    # Add additional fields here if needed
     telefonas = models.CharField(max_length=255)
-    el_pastas = models.CharField(max_length=255)
+    el_pastas = models.EmailField(max_length=255, unique=True)
     gimimo_data = models.DateField()
-    usename = models.CharField(max_length=255)
-    password = models.CharField(max_length=255)
-    level = models.IntegerField()
+
+    # Define the USERNAME_FIELD
+    USERNAME_FIELD = 'username'  # or 'email' if you want to use email as the username
+
+    # Define additional required fields
+    REQUIRED_FIELDS = ['telefonas', 'el_pastas', 'gimimo_data', 'level']
 
 class Receptai(models.Model):
     kalorijos = models.FloatField(default=0.0)

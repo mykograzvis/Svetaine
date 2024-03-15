@@ -22,14 +22,13 @@ class Migration(migrations.Migration):
             name='Naudotojai',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('vardas', models.CharField(max_length=255)),
-                ('pavarde', models.CharField(max_length=255)),
                 ('telefonas', models.CharField(max_length=255)),
                 ('el_pastas', models.CharField(max_length=255)),
                 ('gimimo_data', models.DateField()),
-                ('usename', models.CharField(max_length=255)),
+                ('username', models.CharField(max_length=255)),
                 ('password', models.CharField(max_length=255)),
-                ('level', models.IntegerField()),
+                ('vardas', models.CharField(max_length=255)),
+                ('pavarde', models.CharField(max_length=255)),
             ],
         ),
         migrations.CreateModel(
